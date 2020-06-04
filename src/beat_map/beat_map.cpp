@@ -1,4 +1,4 @@
-#include "beat_map/beat_map.hpp"
+#include "ksh/beat_map/beat_map.hpp"
 #include <cassert>
 
 BeatMap::BeatMap(const std::map<Measure, double>& tempoChanges, const std::map<int, TimeSig>& timeSigChanges)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "chart_object/abstract_note.hpp"
+#include "ksh/chart_object/abstract_note.hpp"
 
 struct BTNote final : public AbstractNote
 {

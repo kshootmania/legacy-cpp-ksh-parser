@@ -1,7 +1,7 @@
 #pragma once
 
-#include "chart_object/abstract_note.hpp"
-#include "chart_object/lane_spin.hpp"
+#include "ksh/chart_object/abstract_note.hpp"
+#include "ksh/chart_object/lane_spin.hpp"
 
 struct LaserNote final : public AbstractNote
 {

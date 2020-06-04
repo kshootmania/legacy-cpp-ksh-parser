@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-#include "beat_map/time_sig.hpp"
+#include "ksh/beat_map/time_sig.hpp"
 
 struct LaneSpin
 {

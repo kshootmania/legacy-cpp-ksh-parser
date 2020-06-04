@@ -1,4 +1,4 @@
-#include "chart_object/laser_note.hpp"
+#include "ksh/chart_object/laser_note.hpp"
 
 LaserNote::LaserNote(Measure length, int startX, int endX, Measure judgmentAlignmentOffsetY, bool halvesCombo, const LaneSpin & laneSpin)
     : AbstractNote(length)

@@ -1,9 +1,9 @@
-#include "chart_object/lane_spin.hpp"
+#include "ksh/chart_object/lane_spin.hpp"
 
 #include <sstream>
 #include <array>
 #include <tuple>
-#include "beat_map/time_sig.hpp"
+#include "ksh/beat_map/time_sig.hpp"
 
 Measure kshLengthToMeasure(const std::string & str)
 {
