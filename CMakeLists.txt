@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.8)
+project(ksh CXX)
+file(GLOB_RECURSE sources src/*.cpp)
+add_library(ksh STATIC ${sources})
+target_compile_options(ksh PUBLIC -O2 -Wall)
+target_compile_features(ksh PUBLIC cxx_std_17)
+target_include_directories(ksh PUBLIC ${PROJECT_SOURCE_DIR}/include)
