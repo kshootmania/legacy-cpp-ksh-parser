@@ -9,26 +9,27 @@ namespace ksh
     Chart::Chart(std::string_view filename, bool keepFileStreamOpen)
         : m_filename(filename)
         , m_fileDirectoryPath(filename.substr(0, filename.find_last_of("/\\")))
+        , m_ifs(std::make_unique<std::ifstream>())
     {
-        m_ifs.open(filename.data(), std::ifstream::in); // TODO: Error handling
+        m_ifs->open(filename.data(), std::ifstream::in); // TODO: Error handling
 
         // Eliminate UTF-8 BOM
         std::string firstLine;
-        std::getline(m_ifs, firstLine, '\n');
+        std::getline(*m_ifs, firstLine, '\n');
         if (firstLine.length() >= 3 && firstLine.substr(0, 3) == "\xEF\xBB\xBF")
         {
             m_isUTF8 = true;
-            m_ifs.seekg(3, std::ios_base::beg);
+            m_ifs->seekg(3, std::ios_base::beg);
         }
         else
         {
             m_isUTF8 = false;
-            m_ifs.seekg(0, std::ios_base::beg);
+            m_ifs->seekg(0, std::ios_base::beg);
         }
 
         std::string line;
         bool barLineExists = false;
-        while (std::getline(m_ifs, line, '\n'))
+        while (std::getline(*m_ifs, line, '\n'))
         {
             // Eliminate CR
             if (!line.empty() && *line.crbegin() == '\r')
@@ -66,7 +67,7 @@ namespace ksh
 
         if (!keepFileStreamOpen)
         {
-            m_ifs.close();
+            m_ifs->close();
         }
     }
 

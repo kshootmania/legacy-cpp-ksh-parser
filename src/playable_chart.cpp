@@ -201,7 +201,7 @@ namespace ksh
         // Read chart body
         // Expect m_ifs to start from the next of the first bar line ("--")
         std::string line;
-        while (std::getline(m_ifs, line, '\n'))
+        while (std::getline(*m_ifs, line, '\n'))
         {
             // Eliminate CR
             if(!line.empty() && *line.crbegin() == '\r') {
@@ -442,7 +442,7 @@ namespace ksh
             }
         }
 
-        m_ifs.close();
+        m_ifs->close();
 
         m_beatMap = std::make_unique<BeatMap>(tempoChanges, timeSigChanges);
     }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include <string_view>
 #include <unordered_map>
@@ -17,7 +18,7 @@ namespace ksh
     protected:
         const std::string m_filename;
         const std::string m_fileDirectoryPath;
-        std::ifstream m_ifs;
+        std::unique_ptr<std::ifstream> m_ifs; // uses unique_ptr to make Chart objects move constructible
         Chart(std::string_view filename, bool keepFileStreamOpen);
 
     public:
