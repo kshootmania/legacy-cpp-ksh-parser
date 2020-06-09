@@ -19,6 +19,7 @@ namespace ksh
         const std::string m_filename;
         const std::string m_fileDirectoryPath;
         std::unique_ptr<std::ifstream> m_ifs; // uses unique_ptr to make Chart objects move constructible
+        int m_difficultyIdx;
         Chart(std::string_view filename, bool keepFileStreamOpen);
 
     public:
@@ -34,6 +35,11 @@ namespace ksh
         bool isKshVersionNewerThanOrEqualTo(int version) const;
 
         int kshVersionInt() const;
+
+        int difficultyIdx() const
+        {
+            return m_difficultyIdx;
+        }
 
         bool isUTF8() const
         {

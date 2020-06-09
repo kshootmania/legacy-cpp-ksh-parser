@@ -62,6 +62,28 @@ namespace ksh
             metaData[key] = value;
         }
 
+        // Determine difficulty index
+        if (metaData.count("difficulty"))
+        {
+            const std::string & d = metaData.at("difficulty");
+            if (d == "light")
+            {
+                m_difficultyIdx = 0;
+            }
+            else if (d == "challenge")
+            {
+                m_difficultyIdx = 1;
+            }
+            else if (d == "extended")
+            {
+                m_difficultyIdx = 2;
+            }
+            else if (d == "infinite")
+            {
+                m_difficultyIdx = 3;
+            }
+        }
+
         // .ksh files should have at least one bar line ("--")
         assert(barLineExists);
 
