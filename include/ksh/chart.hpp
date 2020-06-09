@@ -30,7 +30,9 @@ namespace ksh
 
         std::string toString() const;
 
-        bool isVersionNewerThanOrEqualTo(int version) const;
+        bool isKshVersionNewerThanOrEqualTo(int version) const;
+
+        int kshVersionInt() const;
 
         bool isUTF8() const
         {

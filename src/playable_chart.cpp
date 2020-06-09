@@ -132,8 +132,8 @@ namespace ksh
         // TODO: Catch exceptions from std::stod()
 
         // For backward compatibility of zoom_top/zoom_bottom/zoom_side
-        const double zoomAbsMax = isVersionNewerThanOrEqualTo(167) ? ZOOM_ABS_MAX : ZOOM_ABS_MAX_LEGACY;
-        const std::size_t zoomMaxChar = isVersionNewerThanOrEqualTo(167) ? ZOOM_MAX_CHAR : ZOOM_MAX_CHAR_LEGACY;
+        const double zoomAbsMax = isKshVersionNewerThanOrEqualTo(167) ? ZOOM_ABS_MAX : ZOOM_ABS_MAX_LEGACY;
+        const std::size_t zoomMaxChar = isKshVersionNewerThanOrEqualTo(167) ? ZOOM_MAX_CHAR : ZOOM_MAX_CHAR_LEGACY;
 
         std::map<Measure, double> tempoChanges;
         std::map<int, TimeSig> timeSigChanges;
@@ -283,7 +283,7 @@ namespace ksh
                     else if (key == "zoom_top")
                     {
                         double dValue = std::stod(value.substr(0, zoomMaxChar));
-                        if (std::abs(dValue) <= zoomAbsMax || (!isVersionNewerThanOrEqualTo(167) && m_zoomTop.count(y) > 0))
+                        if (std::abs(dValue) <= zoomAbsMax || (!isKshVersionNewerThanOrEqualTo(167) && m_zoomTop.count(y) > 0))
                         {
                             m_zoomTop.insert(y, dValue);
                         }
@@ -291,7 +291,7 @@ namespace ksh
                     else if (key == "zoom_bottom")
                     {
                         double dValue = std::stod(value.substr(0, zoomMaxChar));
-                        if (std::abs(dValue) <= zoomAbsMax || (!isVersionNewerThanOrEqualTo(167) && m_zoomBottom.count(y) > 0))
+                        if (std::abs(dValue) <= zoomAbsMax || (!isKshVersionNewerThanOrEqualTo(167) && m_zoomBottom.count(y) > 0))
                         {
                             m_zoomBottom.insert(y, dValue);
                         }
@@ -299,7 +299,7 @@ namespace ksh
                     else if (key == "zoom_side")
                     {
                         double dValue = std::stod(value.substr(0, zoomMaxChar));
-                        if (std::abs(dValue) <= zoomAbsMax || (!isVersionNewerThanOrEqualTo(167) && m_zoomSide.count(y) > 0))
+                        if (std::abs(dValue) <= zoomAbsMax || (!isKshVersionNewerThanOrEqualTo(167) && m_zoomSide.count(y) > 0))
                         {
                             m_zoomSide.insert(y, dValue);
                         }

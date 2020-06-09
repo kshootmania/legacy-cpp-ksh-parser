@@ -121,7 +121,7 @@ namespace ksh
         return oss.str();
     }
 
-    bool Chart::isVersionNewerThanOrEqualTo(int version) const
+    int Chart::kshVersionInt() const
     {
         int chartVersion;
         if (metaData.count("ver"))
@@ -133,7 +133,12 @@ namespace ksh
             chartVersion = 100;
         }
         
-        return chartVersion >= version;
+        return chartVersion;
+    }
+
+    bool Chart::isKshVersionNewerThanOrEqualTo(int version) const
+    {
+        return kshVersionInt() >= version;
     }
 
 }
