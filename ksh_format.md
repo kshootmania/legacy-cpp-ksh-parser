@@ -270,6 +270,7 @@ The list of header options is as follows:
     - History and implementation guides:
         - ""
             - The value of "`mvol`" is multiplied by 0.6.
+            - FX audio effects are specified using alphabets (e.g. "`F`"=Flanger).
             - The separator of "`layer`" is "`/`".
             - The "`t`" value can be set higher than 65535.0
             - The relaxation time of lane tilts is 2/3 times as large as that of the current version.
@@ -281,7 +282,9 @@ The list of header options is as follows:
         - "`121`"
             - The relaxation time of lane tilts is the same as that of the current version.
         - "`130`"
-            - The "`t`" value cannot be set higher than 65535.0
+            - The "`t`" value cannot be set higher than 65535.0.
+        - "`160`"
+            - FX audio effects are specified using "`fx-l`" and "`fx-r`" option lines instead of alphabets.
         - "`166`"
             - The separator of "`layer`" is changed to "`;`".
                 - "`/`" is no longer treated as a separator.
@@ -289,6 +292,9 @@ The list of header options is as follows:
         - "`167`"
             - The top lane zoom behavior is updated (from a simple move to a 3D rotation).
             - The lane zoom values are not restricted between -300 and 300.
+        - "`171`"
+            - The maximum polyphony of laser slams is changed to 1.
+            - The maximum polyphony of keysounds is changed to 1.
 - "`information`" (default:"")
     - The optional information shown in song selection
     - Line break is not supported
