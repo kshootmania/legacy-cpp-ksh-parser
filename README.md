@@ -1,4 +1,4 @@
-KSH library
+KSH library (LEGACY)
 ====================================
 
 ## KSH Format Specification
